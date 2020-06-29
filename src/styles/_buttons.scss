@@ -1,0 +1,45 @@
+.btn {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    user-select: none;
+    padding: .3125rem 3.75rem;
+    font-size: $font-size-sm;
+    font-family: $font-family-base-bold;
+    line-height: $line-height-lg;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    text-transform: uppercase;
+    color: $white;
+    cursor: pointer;
+
+    &--empty {
+        background-color: initial;
+        color: $white;
+        padding: 0;
+    }
+    &--border {
+        background-color: initial;
+        border: 1px solid $primary;
+    }
+    &--filter {
+        width: 50px;
+        height: 40px;
+        padding: 0 !important;
+        background: $white;
+        border: 1px solid $gray-400;
+        color: $black;
+    }
+    &--primary {
+        border-color: $primary;
+        background-color: $primary;
+        color: $white;
+    }
+    &--disabled {
+        opacity: 0.5;
+        cursor: default;
+    }
+}

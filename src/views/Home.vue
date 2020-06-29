@@ -1,18 +1,57 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="container">
+      <Table :data="astronauts">
+        <table-column
+          label="Name"
+          name="name"
+        >
+          <template slot="header">
+            Header
+          </template>
+          <template>
+            Body
+          </template>
+        </table-column>
+        <table-column
+          label="Date"
+          name="date"
+        ></table-column>
+        <table-column
+          label="Days"
+          name="days"
+        ></table-column>
+        <table-column
+          label="Mission"
+          name="mission"
+        ></table-column>
+        <table-column
+          label="Several flights"
+          name="isMultiple"
+        ></table-column>
+      </Table>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import { mapState } from 'vuex';
+import Table from '@/components/Table/index.vue';
+import TableColumn from '@/components/Table/TableColumn.vue';
 
 export default {
-  name: 'Home',
+  name: 'HomePage',
   components: {
-    HelloWorld,
+    Table,
+    TableColumn,
+  },
+  computed: {
+    ...mapState('table', {
+      astronauts: (state) => state.astronauts,
+    }),
+  },
+  mounted() {
+    this.$store.dispatch('table/fetchAstronaunts');
   },
 };
 </script>
